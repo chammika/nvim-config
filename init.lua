@@ -449,6 +449,11 @@ require("mini.indentscope").setup({
 })
 require("mini.pairs").setup({})
 require("mini.trailspace").setup({})
+
+-- "jj" escapes to Normal mode; a combo (not `imap`) so plain "j" is never delayed
+local MiniKeymap = require("mini.keymap")
+MiniKeymap.map_combo({ "i", "c", "x", "s" }, "jj", "<BS><BS><Esc>", { delay = 250 })
+MiniKeymap.map_combo("t", "jj", "<BS><BS><C-\\><C-n>", { delay = 250 })
 require("mini.bufremove").setup({})
 require("mini.notify").setup({})
 
