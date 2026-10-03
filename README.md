@@ -23,9 +23,19 @@ Requires **Neovim 0.11+** (developed on 0.12).
 | `TRANSPARENCY` | runs last so it wins over per-plugin highlight tweaks |
 | `FLOATING TERMINAL` | no dependencies |
 
+## Files
+
+| File | Purpose |
+|---|---|
+| `init.lua` | the entire configuration |
+| `nvim-pack-lock.json` | `vim.pack` lockfile — pins each plugin to a revision; written automatically, commit it to reproduce an exact plugin set |
+| `.luarc.json` | declares the `vim` global for lua_ls |
+| `.luacheckrc` | same for luacheck, plus hands line length to stylua |
+
 ## Plugins
 
-Installed with `vim.pack.add`. Update with `:lua vim.pack.update()`.
+Installed with `vim.pack.add`. Update with `:lua vim.pack.update()`, which
+rewrites `nvim-pack-lock.json`.
 
 | Plugin | Role |
 |---|---|
