@@ -127,6 +127,13 @@ require("catppuccin").setup({
 		nvimtree = true,
 		native_lsp = { enabled = true, underlines = { errors = { "undercurl" } } },
 	},
+	-- mini.cursorword: background instead of underline
+	custom_highlights = function(c)
+		return {
+			MiniCursorword = { bg = c.surface1, style = {} },
+			MiniCursorwordCurrent = { bg = c.surface1, style = {} },
+		}
+	end,
 })
 vim.cmd.colorscheme("catppuccin")
 
@@ -452,7 +459,7 @@ require("mini.trailspace").setup({})
 
 -- "jj" escapes to Normal mode; a combo (not `imap`) so plain "j" is never delayed
 local MiniKeymap = require("mini.keymap")
-MiniKeymap.map_combo({ "i", "c", "x", "s" }, "jj", "<BS><BS><Esc>", { delay = 250 })
+MiniKeymap.map_combo({ "i", "c" }, "jj", "<BS><BS><Esc>", { delay = 250 })
 MiniKeymap.map_combo("t", "jj", "<BS><BS><C-\\><C-n>", { delay = 250 })
 require("mini.bufremove").setup({})
 -- no LSP progress popups (pyright re-reports on every keystroke)
