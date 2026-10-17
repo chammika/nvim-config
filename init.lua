@@ -742,7 +742,10 @@ vim.lsp.config("lua_ls", {
 		},
 	},
 })
-vim.lsp.config("pyright", {})
+-- pyright for gd/K/completion only; Ruff (efm) does the linting
+vim.lsp.config("pyright", {
+	settings = { python = { analysis = { typeCheckingMode = "off" } } },
+})
 vim.lsp.config("bashls", {})
 vim.lsp.config("ts_ls", {})
 vim.lsp.config("gopls", {})
