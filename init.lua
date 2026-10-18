@@ -708,7 +708,6 @@ vim.api.nvim_create_autocmd("LspAttach", { group = augroup, callback = lsp_on_at
 vim.keymap.set("n", "<leader>q", function()
 	vim.diagnostic.setloclist({ open = true })
 end, { desc = "Open diagnostic list" })
-vim.keymap.set("n", "<leader>dl", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
 
 require("blink.cmp").setup({
 	keymap = {
