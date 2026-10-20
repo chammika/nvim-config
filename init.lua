@@ -400,6 +400,8 @@ require("nvim-tree").setup({
 	renderer = {
 		group_empty = true,
 	},
+	-- highlight the current buffer's file in the tree (expands folders to it)
+	update_focused_file = { enable = true },
 })
 vim.keymap.set("n", "<leader>e", function()
 	require("nvim-tree.api").tree.toggle()
@@ -721,6 +723,8 @@ require("blink.cmp").setup({
 	},
 	appearance = { nerd_font_variant = "mono" },
 	completion = {
+		-- nothing selected until <C-j>/<C-k>, so <CR> is a plain newline by default
+		list = { selection = { preselect = false } },
 		menu = {
 			auto_show = function()
 				return vim.bo.filetype ~= "markdown"
